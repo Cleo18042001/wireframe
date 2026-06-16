@@ -6,10 +6,14 @@
     <title>Wireframe Interactif - Marsel</title>
     <!-- Font Awesome pour l'icône Instagram -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #FF6B00; /* Orange Public */
-            --secondary: #004B87; /* Bleu Pro */
+            --primary: #FB5315; /* Orange Public */
+            --secondary: #004AAD; /* Bleu Pro */
             --bg: #FFFFFF;
             --surface: #F8F9FA;
             --text: #1A1A1A;
@@ -18,12 +22,11 @@
         }
 
         .theme-pro {
-            --primary: #004B87; /* Bleu Pro */
-            --secondary: #FF6B00; /* Orange Public */
+            --primary: #004AAD; /* Bleu Pro */
+            --secondary: #FB5315; /* Orange Public */
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: var(--bg); color: var(--text); overflow-x: hidden; }
+        * { box-sizing: border-box; margin: 0; padding: 0; } body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); overflow-x: hidden; } .logo, h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
 
         /* Header */
         header {
@@ -35,7 +38,7 @@
         /* Forcer le header à rester visible si on est sur la vue contact */
         body.view-contact header { opacity: 1; transform: translateY(0); position: sticky; }
 
-        .logo { font-weight: bold; font-size: 1.5rem; color: var(--primary); text-decoration: none; cursor: pointer; }
+        .logo { font-weight: bold; font-size: 1.5rem; color: var(--primary); text-decoration: none; cursor: pointer; font-family: 'Cormorant Garamond', serif; }
         .toggle-container { display: flex; gap: 0.5rem; background: var(--surface); padding: 0.25rem; border-radius: 20px; border: 1px solid var(--border); }
         .toggle-btn { padding: 0.5rem 1rem; border: none; border-radius: 15px; cursor: pointer; font-weight: 600; background: transparent; color: var(--text-muted); }
         .toggle-btn.active { background: var(--primary); color: white; }
@@ -46,19 +49,55 @@
 
         /* Sections Landing */
         section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; border-bottom: 1px dashed var(--border); }
-        h2 { font-size: 2rem; margin-bottom: 1rem; text-align: center; color: var(--text); }
-        .subtitle { font-size: 1.2rem; text-align: center; color: var(--text-muted); margin-bottom: 3rem; }
+        h2 { font-size: 2rem; margin-bottom: 1rem; text-align: center; color: var(--text); font-family: 'Cormorant Garamond', serif; }
+        .subtitle { font-size: 1.2rem; text-align: center; color: var(--text-muted); margin-bottom: 3rem;  font-style: italic; }
 
         /* Hero */
         .hero { height: 100vh; display: flex; align-items: center; gap: 4rem; max-width: 1200px; margin: 0 auto; padding: 2rem; border-bottom: 1px dashed var(--border); }
-        .hero-left { flex: 1; }
-        .hero-right { flex: 1; background: var(--surface); height: 400px; display: flex; align-items: center; justify-content: center; border: 2px dashed var(--primary); border-radius: 12px; transition: transform 0.2s ease; position: relative; overflow: hidden; cursor: pointer; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; line-height: 1.2; }
-        .hero p { font-size: 1.5rem; color: var(--text-muted); margin-bottom: 2rem; }
+        .hero-left { flex: 1; font-family: 'Recoleta'}
+        .hero-right {flex: 0 0 350px; max-width: 350px;
+}
+.hero h1 {
+    font-family: 'Cormorant Garamond', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    margin-bottom: 1rem;
+
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.hero p {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.hero p,
+.cta-group,
+.hero-right {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
         .cta-group { display: flex; gap: 1rem; }
         .btn { padding: 0.75rem 1.5rem; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; font-size: 1rem; transition: all 0.2s; }
         .btn-primary { background: var(--primary); color: white; }
         .btn-secondary { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+
 
         /* Grids & Cards */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
@@ -74,7 +113,7 @@
 
         /* STYLE SECTION CONTACT SPECIFIQUE */
         .contact-container { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; }
-        @media (max-width: 768px) { .contact-container { grid-template-columns: 1fr; gap: 2rem; margin: 2rem auto; } }
+        @media (max-width: 740px) { .contact-container { grid-template-columns: 1fr; gap: 2rem; margin: 2rem auto; } }
         .info-section h1 { font-size: 2.5rem; margin-bottom: 1rem; }
         .info-section p { color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.5; }
         .info-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
@@ -113,16 +152,19 @@
     <div class="hero">
         <div class="hero-left">
             <h1>Le silence a duré assez longtemps</h1>
-            <p>Maintenant tu peux répondre</p>
+            <p>Maintenant tu peux agir !</p>
+
+
             <div class="cta-group">
                 <button class="btn btn-primary">Découvrir Marsel</button>
                 <button class="btn btn-secondary" onclick="showView('contact')">Tester Marsel</button>
             </div>
         </div>
         <div class="hero-right" id="hero-video">
-            <div>
-                <p style="text-align: center; font-weight: bold;">[ BLOC VIDÉO / LOGO MARSEL ]</p>
-            </div>
+            <video autoplay muted loop playsinline style="width:100%; height:auto; object-fit:cover; border-radius:12px;">
+                <source src="video.mp4" type="video/mp4">
+            </video>
+        </div>
         </div>
     </div>
 
