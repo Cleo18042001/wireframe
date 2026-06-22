@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing page - Marsel</title>
-    <link rel="stylesheet" href="contact.html">
+
     <!-- Font Awesome pour l'icône Instagram -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -112,6 +112,9 @@
         .card { background: var(--surface); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); }
         .card h3 { margin-bottom: 1rem; font-size: 1.25rem; color: var(--primary); }
 
+
+}
+
         /* Content 2 Schema */
         .schema-placeholder {
 
@@ -125,18 +128,52 @@
     align-items: center;
 }
 
-.schema-placeholder img {
-    width: 2300px;
-    max-width: 90%;
-    height: auto;
+.schema-placeholder {
+    width: 100%;
+    height: 520px;
+    margin-top: 2rem;
+    overflow: hidden;
+    border: none;
+    background: #f8f9fa;
+}
+
+.schema-animation {
+    width: 100%;
+    height: 100%;
+    border: none;
     display: block;
-    margin: 0 auto;
 }
 
 .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+}
+
+/* Icône dans la card */
+.features-grid .card .card-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: 0.75rem; /* ou mets-la en flex avec le h3 */
+}
+
+.features-grid .card .card-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.card img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 0.75rem auto;
 }
 
         /* Award */
@@ -189,9 +226,9 @@
 
             <div class="cta-group">
                 <button class="btn btn-primary">Découvrir Marsel</button>
-                <a href="contact.html" class="btn btn-secondary">
-                    Tester Marsel
-                </a>
+                <button class="btn btn-secondary">Tester Marsel</button>
+
+                
             </div>
         </div>
         <div class="hero-right" id="hero-video">
@@ -230,43 +267,76 @@
         <h2>Et si les gens autour de toi devenaient ton réseau?</h2>
         <div class="subtitle">Fonctionnement du réseau maillé décentralisé citoyen</div>
         <div class="schema-placeholder" >
-            <img src="schema.png" alt="schema">
+                <iframe
+                        src="marsel-schema-dynamique.html"
+                        class="schema-animation"
+                        title="Fonctionnement du réseau Marsel">
+                </iframe>
+            </div>
             <div class="reseau-marsel">
 
             </div>
     </section>
 
     <!-- CONTENT 3 -->
-    <section>
-        <h2>Marsel fonctionne là où tout cesse de fonctionner</h2>
-        <div class="subtitle">Fonctionnalités clés</div>
-        <div class="features-grid">
-            <div class="card"><h3> Aide</h3><p>Un geste suffit. L'alerte part même si tu ne peux pas parler. Flash LED et audio activés automatiquement.</p></div>
-            <div class="card"><h3> Réseau de proche</h3><p>Jusqu'à 5 proches enregistrés. Ils reçoivent ta position et l'alerte en temps réel. Même sans le vouloir tu es moins seul·e.</p></div>
-            <div class="card"><h3> Marsel Relay Network</h3><p>Réseau mesh décentralisé. Fonctionne là où les opérateurs abandonnent.</p></div>
-            <div class="card"><h3> Safe Places</h3><p>Les lieux refuges proches de toi, visibles sur la carte en permanence.</p></div>
-            <div class="card"><h3> Messagerie</h3><p>Envoie des messages à tes proches même sans réseau. La messagerie transite via le Marsel Relay Network.</p></div>
-            <div class="card"><h3> Fonction Event</h3><p>Lors des évènements, Marsel se transforme en un relais d'appel d'urgence connecté à l'équipe de sécurité</p></div>
+<section>
+    <h2>Marsel fonctionne là où tout cesse de fonctionner</h2>
+    <div class="subtitle">Fonctionnalités clés</div>
+    <div class="features-grid">
+        <div class="card">
+            <img src="urgence.png" alt="Aide">
+            <h3>Aide</h3>
+            <p>Un geste suffit. L'alerte part même si tu ne peux pas parler. Flash LED et audio activés automatiquement.</p>
         </div>
-    </section>
+        <div class="card">
+            <img src="proches.png" alt="Réseau de proches">
+            <h3>Réseau de proches</h3>
+            <p>Jusqu'à 5 proches enregistrés. Ils reçoivent ta position et l'alerte en temps réel. Même sans le vouloir tu es moins seul·e.</p>
+        </div>
+        <div class="card">
+            <img src="réseau mesh.png" alt="Marsel Relay Network">
+            <h3>Marsel Relay Network</h3>
+            <p>Réseau mesh décentralisé. Fonctionne là où les opérateurs abandonnent.</p>
+        </div>
+        <div class="card">
+            <img src="localisation.png" alt="Safe Places">
+            <h3>Safe Places</h3>
+            <p>Les lieux refuges proches de toi, visibles sur la carte en permanence.</p>
+        </div>
+        <div class="card">
+            <img src="messagerie.png" alt="Messagerie">
+            <h3>Messagerie</h3>
+            <p>Envoie des messages à tes proches même sans réseau. La messagerie transite via le Marsel Relay Network.</p>
+        </div>
+        <div class="card">
+            <img src="évenement.png" alt="Fonction Event">
+            <h3>Fonction Event</h3>
+            <p>Lors des évènements, Marsel se transforme en un relais d'appel d'urgence connecté à l'équipe de sécurité.</p>
+        </div>
+    </div>
+</section>
 
     <!-- CONTENT 4 -->
     <section>
-        <h2>Validé en conditions réelles.
-            <img src="évenement.png" alt="evenement"></h2>
+        <h2>Validé en conditions réelles.</h2>
         <div class="subtitle">Preuves terrain</div>
         <div class="grid-3">
-            <div class="card"><p>Test en conditions réelles lors de la saison 2025 du Festival Garorock</p></div>
-            <div class="card"><p>Alertes transmises sans réseau</p></div>
-            <div class="card"><p>Optimisation des interventions de l'équipe de sécurité</p></div>
+            <div class="card">
+                <img src="garorock.jpeg" alt="garorock">
+                <p>Test en conditions réelles lors de la saison 2025 du Festival Garorock</p></div>
+            <div class="card">
+                <img src="sans%20réseau.png" alt="sans reseau">
+                <p>Alertes transmises sans réseau</p></div>
+            <div class="card">
+                <img src="sécurité.png" alt="securité">
+                <p>Optimisation des interventions de l'équipe de sécurité</p></div>
         </div>
         <div class="award">🏆 Lauréat Eurêka Incub - Festival de Demain 2025</div>
     </section>
 
     <!-- CONTENT 5 CTA -->
     <section style="text-align: center; border-bottom: none; padding: 8rem 2rem;">
-        <h2>Parce qu'on ne devrait jamais être seul.e face au danger.
-            <img src="communauté.png" alt="communauté"></h2>
+        <h2>Parce qu'on ne devrait jamais être seul.e face au danger.</h2>
         <div class="subtitle">Rejoins le réseau citoyen. Test Marsel</div>
         <button class="btn btn-primary" style="font-size: 1.25rem; padding: 1rem 2.5rem;" onclick="showView('contact')">Je veux tester Marsel</button>
     </section>
@@ -283,7 +353,7 @@
                 <div class="info-icon"><i data-lucide="mail"></i></div>
                 <div>
                     <strong>Email général</strong>
-                    <div style="color: var(--text-muted);">contact@marsel-app.fr</div>
+                    <div style="color: var(--text-muted);"> contact@marselapp.com</div>
                 </div>
             </div>
 
@@ -291,7 +361,7 @@
                 <div class="info-icon"><i data-lucide="tent"></i></div>
                 <div>
                     <strong>Événementiel / Pro</strong>
-                    <div style="color: var(--text-muted);">marselapp.com</div>
+                    <div style="color: var(--text-muted);">www.marselapp.com</div>
                 </div>
             </div>
 
@@ -341,6 +411,8 @@
 <!-- FOOTER (Commun) -->
 <footer>
     <p>© 2026 Marsel. Tous droits réservés.</p>
+    <p style="text-align:center; color: var(--text-muted); font-size: 0.9rem;">
+        ❤️ Fait sur mesure à Bordeaux
     <div>
         <a onclick="showView('landing')">Accueil</a>
         <a href="#">Mentions Légales</a>
@@ -354,31 +426,21 @@
 <script>
     lucide.createIcons();
 
-    // --- GESTION DU CHANGEMENT DE VUE (LANDING VS CONTACT) ---
     function showView(viewName) {
-        // Masquer toutes les vues
         document.getElementById('view-landing').classList.add('hidden');
         document.getElementById('view-contact').classList.add('hidden');
-
-        // Retirer l'état spécial contact sur le body
         document.body.classList.remove('view-contact');
-
-        // Afficher la vue demandée
         if(viewName === 'contact') {
             document.getElementById('view-contact').classList.remove('hidden');
-            document.body.classList.add('view-contact'); // Garde le header visible
+            document.body.classList.add('view-contact');
         } else {
             document.getElementById('view-landing').classList.remove('hidden');
         }
-
-        // Remonter en haut de la page automatiquement
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // --- APPARITION DU HEADER AU SCROLL ---
     window.addEventListener('scroll', () => {
         const header = document.getElementById('main-header');
-        // N'applique le masquage au scroll que si on est sur l'accueil
         if (!document.body.classList.contains('view-contact')) {
             if (window.scrollY > 80) {
                 header.classList.add('visible');
@@ -388,7 +450,6 @@
         }
     });
 
-    // Switch de thème (Public/Pro)
     function setTheme(theme, btn) {
         document.querySelectorAll('.toggle-container .toggle-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
@@ -401,7 +462,6 @@
         }
     }
 
-    // Sélection interne formulaire
     function selectType(type) {
         if(document.getElementById('opt-public') && document.getElementById('opt-pro')) {
             document.getElementById('opt-public').classList.remove('selected');
@@ -414,41 +474,15 @@
         }
     }
 
-    // Effet tilt souris sur bloc vidéo
     const videoBlock = document.getElementById('hero-video');
     videoBlock.addEventListener('mousemove', (e) => {
         const rect = videoBlock.getBoundingClientRect();
-        const x = e.clientX - rect.left - (rect.width/2);
-        const y = e.clientY - rect.top - (rect.height/2);
-        videoBlock.style.transform = `perspective(1000px) rotateX(${-y/20}deg) rotateY(${x/20}deg) scale(1.02)`;
+        const x = e.clientX - rect.left - (rect.width / 2);
+        const y = e.clientY - rect.top - (rect.height / 2);
+        videoBlock.style.transform = `perspective(1000px) rotateX(${-y/30}deg) rotateY(${x/30}deg) scale(1.03)`;
     });
     videoBlock.addEventListener('mouseleave', () => {
         videoBlock.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
-    });
-
-    <script>
-    lucide.createIcons();
-
-    // autres fonctions...
-
-    const videoBlock = document.getElementById('hero-video');
-
-    videoBlock.addEventListener('mousemove', (e) => {
-        const rect = videoBlock.getBoundingClientRect();
-
-        const x = e.clientX - rect.left - (rect.width / 2);
-        const y = e.clientY - rect.top - (rect.height / 2);
-
-        videoBlock.style.transform =
-            `perspective(1000px)
-            rotateX(${-y / 30}deg)
-            rotateY(${x / 30}deg)
-            scale(1.03)`;
-    });
-
-    videoBlock.addEventListener('mouseleave', () => {
-        videoBlock.style.transform =
-            'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
     });
 </script>
 </body>
