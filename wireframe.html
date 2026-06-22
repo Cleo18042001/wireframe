@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wireframe Interactif - Marsel</title>
+    <title>Landing page - Marsel</title>
+    <link rel="stylesheet" href="contact.html">
     <!-- Font Awesome pour l'icône Instagram -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -54,7 +54,7 @@
 
         /* Hero */
         .hero { height: 100vh; display: flex; align-items: center; gap: 4rem; max-width: 1200px; margin: 0 auto; padding: 2rem; border-bottom: 1px dashed var(--border); }
-        .hero-left { flex: 1; font-family: 'Recoleta'}
+        .hero-left { flex: 1; font-family: 'Cormorant Light Italic', sans-serif;}
         .hero-right {flex: 0 0 350px; max-width: 350px;
 }
 .hero h1 {
@@ -71,9 +71,10 @@
 }
 
 .hero p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.8rem, 3vw, 2.4rem);
-    font-weight: 500;
+    font-weight: 300;
+    font-style: italic;
     color: var(--text-muted);
     margin-bottom: 2rem;
 }
@@ -83,10 +84,17 @@
 .hero-right {
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeUp 0.8s ease forwards;
+    animation: fadeUp 14s ease forwards;
     animation-delay: 1.2s;
+
+}
+#hero-video {
+    transition: transform 0.3s ease;
 }
 
+#hero-video:hover {
+    transform: rotate(-2deg) scale(1.03);
+}
 @keyframes fadeUp {
     to {
         opacity: 1;
@@ -105,7 +113,31 @@
         .card h3 { margin-bottom: 1rem; font-size: 1.25rem; color: var(--primary); }
 
         /* Content 2 Schema */
-        .schema-placeholder { background: var(--surface); height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 2px dashed var(--secondary); font-weight: bold; color: var(--text-muted); }
+        .schema-placeholder {
+
+    background: none;
+    height: 400px;
+    border-radius: 12px;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.schema-placeholder img {
+    width: 2300px;
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
 
         /* Award */
         .award { text-align: center; margin-top: 3rem; padding: 1.5rem; background: rgba(255, 107, 0, 0.1); border-radius: 8px; font-weight: bold; color: var(--primary); font-size: 1.2rem; }
@@ -157,11 +189,13 @@
 
             <div class="cta-group">
                 <button class="btn btn-primary">Découvrir Marsel</button>
-                <button class="btn btn-secondary" onclick="showView('contact')">Tester Marsel</button>
+                <a href="contact.html" class="btn btn-secondary">
+                    Tester Marsel
+                </a>
             </div>
         </div>
         <div class="hero-right" id="hero-video">
-            <video autoplay muted loop playsinline style="width:100%; height:auto; object-fit:cover; border-radius:12px;">
+            <video autoplay muted playsinline style="width:100%; height:auto; object-fit:cover; border-radius:12px;">
                 <source src="video.mp4" type="video/mp4">
             </video>
         </div>
@@ -170,10 +204,12 @@
 
     <!-- CONTENT 1 -->
     <section>
-        <h2>1 personne sur 3 a déjà été victime de harcèlement</h2>
+        <h2>1 personne sur 3 a déjà été victime de harcèlement
+           </h2>
         <div class="subtitle">Et la plupart du temps, elles n'ont pu alerter personne.</div>
         <div class="grid-3">
             <div class="card">
+                <img src="solitude.png" alt="harcèlement">
                 <h3>Seul.e la nuit, réseau à zéro</h3>
                 <p>Tu essaies d'appeler. Ça ne passe pas. Le réseau est saturé ou inexistant. Tu es seul·e face au danger.</p>
             </div>
@@ -182,6 +218,7 @@
                 <p>Composer un numéro sous stress prend trop de temps. Chaque seconde compte.</p>
             </div>
             <div class="card">
+                <img src="communauté.png" alt="harcèlement">
                 <h3>Témoin ou victime même combat</h3>
                 <p>Que tu sois victime ou témoin il faut pouvoir agir immédiatement.</p>
             </div>
@@ -192,28 +229,31 @@
     <section>
         <h2>Et si les gens autour de toi devenaient ton réseau?</h2>
         <div class="subtitle">Fonctionnement du réseau maillé décentralisé citoyen</div>
-        <div class="schema-placeholder">
-            [ SCHÉMA INTERACTIF ANIMÉ : SIMULATION DE NŒUDS / CITOYENS INTERCONNECTÉS ]
-        </div>
+        <div class="schema-placeholder" >
+            <img src="schema.png" alt="schema">
+            <div class="reseau-marsel">
+
+            </div>
     </section>
 
     <!-- CONTENT 3 -->
     <section>
         <h2>Marsel fonctionne là où tout cesse de fonctionner</h2>
         <div class="subtitle">Fonctionnalités clés</div>
-        <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-            <div class="card"><h3>🚨 SOS</h3><p>Un geste suffit. L'alerte part même si tu ne peux pas parler. Flash LED et audio activés automatiquement.</p></div>
-            <div class="card"><h3>👥 Réseau de proche</h3><p>Jusqu'à 5 proches enregistrés. Ils reçoivent ta position et l'alerte en temps réel. Même sans le vouloir tu es moins seul·e.</p></div>
-            <div class="card"><h3>🌐 Marsel Relay Network</h3><p>Réseau mesh décentralisé. Fonctionne là où les opérateurs abandonnent.</p></div>
-            <div class="card"><h3>📍 Safe Places</h3><p>Les lieux refuges proches de toi, visibles sur la carte en permanence.</p></div>
-            <div class="card"><h3>💬 Messagerie</h3><p>Envoie des messages à tes proches même sans réseau. La messagerie transite via le Marsel Relay Network.</p></div>
-            <div class="card"><h3>🎪 Fonction Event</h3><p>Lors des évènements, Marsel se transforme en un relais d'appel d'urgence connecté à l'équipe de sécurité</p></div>
+        <div class="features-grid">
+            <div class="card"><h3> Aide</h3><p>Un geste suffit. L'alerte part même si tu ne peux pas parler. Flash LED et audio activés automatiquement.</p></div>
+            <div class="card"><h3> Réseau de proche</h3><p>Jusqu'à 5 proches enregistrés. Ils reçoivent ta position et l'alerte en temps réel. Même sans le vouloir tu es moins seul·e.</p></div>
+            <div class="card"><h3> Marsel Relay Network</h3><p>Réseau mesh décentralisé. Fonctionne là où les opérateurs abandonnent.</p></div>
+            <div class="card"><h3> Safe Places</h3><p>Les lieux refuges proches de toi, visibles sur la carte en permanence.</p></div>
+            <div class="card"><h3> Messagerie</h3><p>Envoie des messages à tes proches même sans réseau. La messagerie transite via le Marsel Relay Network.</p></div>
+            <div class="card"><h3> Fonction Event</h3><p>Lors des évènements, Marsel se transforme en un relais d'appel d'urgence connecté à l'équipe de sécurité</p></div>
         </div>
     </section>
 
     <!-- CONTENT 4 -->
     <section>
-        <h2>Validé en conditions réelles.</h2>
+        <h2>Validé en conditions réelles.
+            <img src="évenement.png" alt="evenement"></h2>
         <div class="subtitle">Preuves terrain</div>
         <div class="grid-3">
             <div class="card"><p>Test en conditions réelles lors de la saison 2025 du Festival Garorock</p></div>
@@ -225,7 +265,8 @@
 
     <!-- CONTENT 5 CTA -->
     <section style="text-align: center; border-bottom: none; padding: 8rem 2rem;">
-        <h2>Parce qu'on ne devrait jamais être seul.e face au danger.</h2>
+        <h2>Parce qu'on ne devrait jamais être seul.e face au danger.
+            <img src="communauté.png" alt="communauté"></h2>
         <div class="subtitle">Rejoins le réseau citoyen. Test Marsel</div>
         <button class="btn btn-primary" style="font-size: 1.25rem; padding: 1rem 2.5rem;" onclick="showView('contact')">Je veux tester Marsel</button>
     </section>
@@ -250,7 +291,7 @@
                 <div class="info-icon"><i data-lucide="tent"></i></div>
                 <div>
                     <strong>Événementiel / Pro</strong>
-                    <div style="color: var(--text-muted);">pro@marsel-app.fr</div>
+                    <div style="color: var(--text-muted);">marselapp.com</div>
                 </div>
             </div>
 
@@ -383,6 +424,31 @@
     });
     videoBlock.addEventListener('mouseleave', () => {
         videoBlock.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+
+    <script>
+    lucide.createIcons();
+
+    // autres fonctions...
+
+    const videoBlock = document.getElementById('hero-video');
+
+    videoBlock.addEventListener('mousemove', (e) => {
+        const rect = videoBlock.getBoundingClientRect();
+
+        const x = e.clientX - rect.left - (rect.width / 2);
+        const y = e.clientY - rect.top - (rect.height / 2);
+
+        videoBlock.style.transform =
+            `perspective(1000px)
+            rotateX(${-y / 30}deg)
+            rotateY(${x / 30}deg)
+            scale(1.03)`;
+    });
+
+    videoBlock.addEventListener('mouseleave', () => {
+        videoBlock.style.transform =
+            'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
     });
 </script>
 </body>
